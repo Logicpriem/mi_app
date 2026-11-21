@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#18181b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Calculadora SV</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2318181b'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23facc15' stroke='%23eab308' stroke-width='6'/%3E%3Ctext x='50' y='63' font-family='sans-serif' font-size='38' font-weight='bold' text-anchor='middle' fill='%2318181b'%3EC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="panel">
+    <div class="header-panel">
+      <h2 id="titulo-panel">Monedas</h2>
+      <button type="button" id="btn-modo-multiple" class="btn-toggle" aria-pressed="false">
+        Multiventa: OFF
+      </button>
+    </div>
+
+    <!-- Banner de edición con campo de nombre opcional -->
+    <div id="banner-edicion" class="banner-edicion oculto">
+      <div class="banner-top">
+        <span>Editando <strong id="texto-editando">#1</strong></span>
+        <button type="button" id="btn-cancelar-edicion">Cancelar</button>
+      </div>
+      <input type="text" id="input-nombre-edicion" placeholder="Nombre opcional (ej: Espada)" autocomplete="off">
+    </div>
+
+    <!-- Cobre -->
+    <div class="fila-moneda">
+      <div class="info-moneda">
+        <span class="nombre cobre">Cobre</span>
+        <span class="valor-base">1 c</span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" class="input-moneda" min="0" placeholder="0" data-valor="1" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+      <div class="resultado-parcial">0 c</div>
+    </div>
+
+    <!-- Hierro -->
+    <div class="fila-moneda">
+      <div class="info-moneda">
+        <span class="nombre hierro">Hierro</span>
+        <span class="valor-base">40 c</span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" class="input-moneda" min="0" placeholder="0" data-valor="40" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+      <div class="resultado-parcial">0 c</div>
+    </div>
+
+    <!-- Oro -->
+    <div class="fila-moneda">
+      <div class="info-moneda">
+        <span class="nombre oro">Oro</span>
+        <span class="valor-base">800 c</span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" class="input-moneda" min="0" placeholder="0" data-valor="800" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+      <div class="resultado-parcial">0 c</div>
+    </div>
+
+    <!-- Adamantita -->
+    <div class="fila-moneda">
+      <div class="info-moneda">
+        <span class="nombre adamantita">Adamantita</span>
+        <span class="valor-base">1.000 c</span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" class="input-moneda" min="0" placeholder="0" data-valor="1000" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+      <div class="resultado-parcial">0 c</div>
+    </div>
+
+    <!-- Diamante -->
+    <div class="fila-moneda">
+      <div class="info-moneda">
+        <span class="nombre diamante">Diamante</span>
+        <span class="valor-base">8.000 c</span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" class="input-moneda" min="0" placeholder="0" data-valor="8000" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+      <div class="resultado-parcial">0 c</div>
+    </div>
+
+    <!-- Netherita -->
+    <div class="fila-moneda">
+      <div class="info-moneda">
+        <span class="nombre netherita">Netherita</span>
+        <span class="valor-base">40.000 c</span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" class="input-moneda" min="0" placeholder="0" data-valor="40000" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+      <div class="resultado-parcial">0 c</div>
+    </div>
+
+    <!-- Cantidad de Objetos -->
+    <div class="fila-objetos">
+      <div class="info-objetos">
+        <span class="nombre-objetos">Cantidad de objetos</span>
+        <span class="valor-base">Unitario: <strong id="costo-unitario">0 c</strong></span>
+      </div>
+      <div class="control-numero">
+        <button type="button" class="btn-step btn-restar" aria-label="Restar">−</button>
+        <input type="number" id="cantidad-objetos" min="1" value="1" readonly>
+        <button type="button" class="btn-step btn-sumar" aria-label="Sumar">+</button>
+      </div>
+    </div>
+
+    <!-- Botón Agregar compacto (Solo en Multiventa) -->
+    <button type="button" id="btn-agregar" class="solo-multiple oculto">
+      + Agregar #1 a la lista (0 c)
+    </button>
+
+    <!-- Lista compacta de ítems numerados (Solo en Multiventa) -->
+    <div id="contenedor-lista" class="seccion-lista solo-multiple oculto">
+      <div id="lista-venta" class="grid-lista">
+        <span class="lista-vacia">Sin ítems guardados aún</span>
+      </div>
+    </div>
+
+    <!-- Suma Total -->
+    <div class="total-caja">
+      <span class="total-texto">TOTAL A PAGAR:</span>
+      <span class="total-numero" id="total-general">0 c</span>
+    </div>
+
+    <button type="button" id="btn-limpiar">Limpiar todo</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>

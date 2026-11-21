@@ -1,0 +1,416 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #18181b;
+  color: #f4f4f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 6px;
+}
+
+.panel {
+  background-color: #27272a;
+  border: 2px solid #3f3f46;
+  border-radius: 10px;
+  padding: 10px 12px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.header-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3f3f46;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #e4e4e7;
+}
+
+.btn-toggle {
+  padding: 4px 10px;
+  background-color: #18181b;
+  color: #a1a1aa;
+  border: 1px solid #52525b;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-toggle.activo {
+  background-color: #0d9488;
+  color: #ffffff;
+  border-color: #2dd4bf;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.banner-edicion {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: rgba(250, 204, 21, 0.12);
+  border: 1px solid #facc15;
+  color: #facc15;
+  padding: 5px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+}
+
+.banner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#btn-cancelar-edicion {
+  background: transparent;
+  border: 1px solid #facc15;
+  color: #facc15;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.72rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#input-nombre-edicion {
+  width: 100%;
+  padding: 4px 8px;
+  background-color: #18181b;
+  border: 1px solid #facc15;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+#input-nombre-edicion::placeholder {
+  color: #a1a1aa;
+}
+
+#input-nombre-edicion:focus {
+  outline: none;
+}
+
+/* Filas de monedas en columna limpia (sin desbordes) */
+.fila-moneda {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f1f23;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin-bottom: 5px;
+}
+
+.info-moneda {
+  display: flex;
+  flex-direction: column;
+  width: 34%;
+  line-height: 1.15;
+}
+
+.nombre {
+  font-weight: bold;
+  font-size: 0.88rem;
+}
+
+.valor-base {
+  font-size: 0.7rem;
+  color: #a1a1aa;
+}
+
+.cobre { color: #e07a5f; }
+.hierro { color: #d4d4d8; }
+.oro { color: #facc15; }
+.adamantita { color: #a855f7; }
+.diamante { color: #2dd4bf; }
+.netherita { color: #71717a; }
+
+.control-numero {
+  display: flex;
+  align-items: center;
+  background-color: #18181b;
+  border: 1px solid #52525b;
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.btn-step {
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  background-color: #27272a;
+  color: #e4e4e7;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.btn-step:active {
+  background-color: #52525b;
+  color: #2dd4bf;
+}
+
+input[type="number"] {
+  width: 40px;
+  height: 28px;
+  padding: 2px;
+  background-color: #18181b;
+  border: none;
+  border-left: 1px solid #3f3f46;
+  border-right: 1px solid #3f3f46;
+  color: #ffffff;
+  font-size: 0.92rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: default;
+  user-select: none;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+.resultado-parcial {
+  width: 30%;
+  text-align: right;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #e4e4e7;
+}
+
+/* Cantidad de objetos */
+.fila-objetos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f1f23;
+  border: 1px dashed #2dd4bf;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-top: 6px;
+}
+
+.info-objetos {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.nombre-objetos {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #2dd4bf;
+}
+
+#costo-unitario {
+  color: #e4e4e7;
+}
+
+#btn-agregar {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  background-color: #0d9488;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn-agregar.modo-guardar-edicion {
+  background-color: #eab308;
+  color: #18181b;
+}
+
+#btn-agregar:active {
+  opacity: 0.9;
+}
+
+.seccion-lista {
+  margin-top: 6px;
+  background-color: #18181b;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  padding: 5px;
+  max-height: 88px;
+  overflow-y: auto;
+}
+
+.grid-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lista-vacia {
+  text-align: center;
+  color: #71717a;
+  font-size: 0.78rem;
+  padding: 4px 0;
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 5px;
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+.item-card.en-edicion {
+  border-color: #facc15;
+  background-color: #2e2c22;
+}
+
+.item-izq {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+}
+
+.badge-num {
+  background-color: #0d9488;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.item-nombre {
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: #f4f4f5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-cant {
+  font-size: 0.8rem;
+  color: #a1a1aa;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.item-der {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.item-precio {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #facc15;
+  margin-right: 2px;
+}
+
+.btn-accion-lista {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-editar {
+  background-color: #3f3f46;
+  color: #e4e4e7;
+}
+
+.btn-borrar {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.total-caja {
+  margin-top: 7px;
+  padding: 8px 12px;
+  background-color: #18181b;
+  border: 2px solid #facc15;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-texto {
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: #a1a1aa;
+}
+
+.total-numero {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #facc15;
+}
+
+#btn-limpiar {
+  width: 100%;
+  margin-top: 6px;
+  padding: 7px;
+  background-color: #3f3f46;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn-limpiar:active {
+  background-color: #52525b;
+}
+
