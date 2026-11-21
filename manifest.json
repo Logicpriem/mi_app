@@ -1,0 +1,16 @@
+{
+  "name": "Calculadora de Monedas SV",
+  "short_name": "Calc Monedas",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#18181b",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%2318181b'/%3E%3Ccircle cx='256' cy='256' r='175' fill='%23facc15' stroke='%23eab308' stroke-width='28'/%3E%3Ctext x='256' y='320' font-family='sans-serif' font-size='190' font-weight='bold' text-anchor='middle' fill='%2318181b'%3EC%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
